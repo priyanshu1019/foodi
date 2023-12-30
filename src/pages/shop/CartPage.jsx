@@ -22,7 +22,7 @@ const CartPage = () => {
   // handle decrease
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
-      fetch(`http://localhost:3000/carts/${item._id}`, {
+      fetch(`https://foodi-server-eag1.onrender.com/carts/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const CartPage = () => {
 
   // handle increase
   const handleIncrease = (item) => {
-    fetch(`http://localhost:3000/carts/${item._id}`, {
+    fetch(`https://foodi-server-eag1.onrender.com/carts/${item._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CartPage = () => {
   //     confirmButtonText: "Yes, delete it!",
   //   }).then((result) => {
   //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:3000/carts/${item._id}`, {
+  //       fetch(`https://foodi-server-eag1.onrender.com/carts/${item._id}`, {
   //         method: "DELETE",
   //       })
   //         .then((res) => res.json())

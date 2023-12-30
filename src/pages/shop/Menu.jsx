@@ -14,7 +14,9 @@ const Menu = () => {
     //fetch data from the backend
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/menu");
+        const response = await fetch(
+          "https://foodi-server-eag1.onrender.com/menu"
+        );
         const data = await response.json();
         setMenu(data);
         setFilteredItems(data);

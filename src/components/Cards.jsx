@@ -25,7 +25,7 @@ const Cards = ({ item }) => {
   //       image,
   //       email: user.email,
   //     };
-  //     fetch("http://localhost:3000/carts", {
+  //     fetch("https://foodi-server-eag1.onrender.com/carts", {
   //       method: "POST",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const Cards = ({ item }) => {
       };
 
       axios
-        .post("http://localhost:3000/carts", cartItem)
+        .post("https://foodi-server-eag1.onrender.com/carts", cartItem)
         .then((response) => {
           console.log(response);
           if (response) {

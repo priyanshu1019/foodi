@@ -12,7 +12,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   const [cart, refetch] = useCart();
-
+  const [active, setActive] = useState("");
   useEffect(() => {
     const handleScroll = () => {
       const offSet = window.scrollY;
@@ -30,42 +30,114 @@ const Navbar = () => {
   }, []);
   const navItems = (
     <>
-      <li>
-        <Link to={"/"}>Home</Link>
+      <li
+        onClick={() => {
+          setActive("Home");
+        }}
+        className={`${active === "Home" ? "text-green" : "text-secondary"} `}
+      >
+        <Link
+          to={"/"}
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+          }}
+        >
+          Home
+        </Link>
       </li>
-      <li>
+      <li
+        onClick={() => {
+          setActive("Menu");
+        }}
+        className={`${active === "Menu" ? "text-green" : "text-secondary"} `}
+      >
         <details>
           <summary>Menu</summary>
           <ul className="p-2">
-            <li>
+            <li
+              onClick={() => {
+                setActive("All");
+              }}
+              className={`${
+                active === "All" ? "text-green" : "text-secondary"
+              } `}
+            >
               <Link to={"/menu"}>All</Link>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActive("Salad");
+              }}
+              className={`${
+                active === "Salad" ? "text-green" : "text-secondary"
+              } `}
+            >
               <p>Salad</p>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActive("Pizza");
+              }}
+              className={`${
+                active === "Pizza" ? "text-green" : "text-secondary"
+              } `}
+            >
               <p>Pizza</p>
             </li>
           </ul>
         </details>
       </li>
-      <li>
+      <li
+        onClick={() => {
+          setActive("Services");
+        }}
+        className={`${
+          active === "Services" ? "text-green" : "text-secondary"
+        } `}
+      >
         <details>
           <summary>Services</summary>
           <ul className="p-2">
-            <li>
+            <li
+              onClick={() => {
+                setActive("Online order");
+              }}
+              className={`${
+                active === "Online order" ? "text-green" : "text-secondary"
+              } `}
+            >
               <p>Online order</p>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActive("Table booking");
+              }}
+              className={`${
+                active === "Table booking" ? "text-green" : "text-secondary"
+              } `}
+            >
               <p>Table booking</p>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActive("Order tracking");
+              }}
+              className={`${
+                active === "Order tracking" ? "text-green" : "text-secondary"
+              } `}
+            >
               <p>Order tracking</p>
             </li>
           </ul>
         </details>
       </li>
-      <li>
+      <li
+        onClick={() => {
+          setActive("Offers");
+        }}
+        className={`${active === "Offers" ? "text-green" : "text-secondary"} `}
+      >
         <p>Offers</p>
       </li>
     </>
@@ -105,7 +177,13 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <Link to={"/"}>
+          <Link
+            to={"/"}
+            onClick={() => {
+              setActive("");
+              window.scrollTo(0, 0);
+            }}
+          >
             <p>
               <img src={logo} alt="" />
             </p>

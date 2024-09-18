@@ -16,6 +16,7 @@ import UpdateMenu from "../pages/dashboard/admin/UpdateMenu";
 import Order from "../pages/dashboard/Order";
 import Payment from "../pages/shop/Payment";
 import ManageBookings from "../pages/dashboard/admin/ManageBookings";
+import ItemPage from "../pages/shop/ItemPage"; // Import the ItemPage component
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+      },
+      {
+        path: "/menu/:id", // Add this route for ItemPage
+        element: <ItemPage />,
+        loader: ({ params }) => fetch(`https://foodi-server-eag1.onrender.com/menu/${params.id}`), // Optional loader to fetch data
       },
       {
         path: "/order",
@@ -64,8 +70,7 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: (
       <PrivateRouter>
-        {" "}
-        <DashboardLayout />{" "}
+        <DashboardLayout />
       </PrivateRouter>
     ),
     children: [

@@ -64,11 +64,9 @@ const Order = () => {
                         <td>$ {item.price}</td>
                         <td>{item.status}</td>
                         <td>
-                          <Link to="/contact">
                             <button className="btn btn-sm border-none text-red bg-transparent">
                               Contact
                             </button>
-                          </Link>
                         </td>
                       </tr>
                     ))}
